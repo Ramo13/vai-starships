@@ -17,6 +17,14 @@ const DetailedView = () => {
     dispatch({ type: "REMOVE_PASSENGER" });
   };
 
+  const onCancel = () => {
+    dispatch({ type: "CANCEL_DETAILED" });
+  };
+
+  const onSave = () => {
+    dispatch({ type: "SAVE_DETAILED" });
+  };
+
   return (
     <Row
       xs={{ span: 24, offset: 0 }}
@@ -105,6 +113,20 @@ const DetailedView = () => {
             </Col>
           </Row>
         </>
+      </Col>
+      <Col span={20} style={{ paddingTop: "50px" }}>
+        <Row justify="center">
+          <Col xs={6} sm={6} md={5} lg={4} xl={4}>
+            <Button onClick={onCancel} type="primary" shape="rounded">
+              Cancel
+            </Button>
+          </Col>
+          <Col xs={6} sm={6} md={5} lg={4} xl={4}>
+            <Button onClick={onSave} type="primary" shape="rounded">
+              Save
+            </Button>
+          </Col>
+        </Row>
       </Col>
     </Row>
   );

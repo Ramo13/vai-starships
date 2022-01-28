@@ -73,6 +73,25 @@ const fleetReducer = (state = initialState, action) => {
         },
       };
 
+    case "SAVE_DETAILED":
+      return {
+        ...state,
+        fleet: state.fleet.map((ship) => {
+          if (ship.name === state.detailViewShip.name) {
+            return { ...state.detailViewShip };
+          } else {
+            return { ...ship };
+          }
+        }),
+        detailViewShip: {},
+      };
+
+    case "CANCEL_DETAILED":
+      return {
+        ...state,
+        detailViewShip: {},
+      };
+
     default:
       return state;
   }
