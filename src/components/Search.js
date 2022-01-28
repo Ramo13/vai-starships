@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { Input, Button, Pagination, Space } from "antd";
-import { PlusSquareFilled } from "@ant-design/icons";
+import { PlusSquareFilled, SearchOutlined } from "@ant-design/icons";
 
 const Search = () => {
   const dispatch = useDispatch();
@@ -59,7 +59,8 @@ const Search = () => {
     <div>
       <Input
         style={{ margin: "20px 0 20px 0" }}
-        placeholder="Death Star"
+        placeholder="Search Space Ship Name or Model"
+        prefix={<SearchOutlined />}
         onChange={(e) => {
           setSearchValue(e.target.value);
         }}

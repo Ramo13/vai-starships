@@ -19,7 +19,7 @@ const Fleet = () => {
 
   return (
     <Card title="Your Fleet" style={{ marginBottom: "50px" }}>
-      {fleet &&
+      {fleet.length !== 0 ? (
         fleet.map((ship) => (
           <div key={ship.id}>
             <Card
@@ -37,7 +37,10 @@ const Fleet = () => {
               <Progress percent={ship.usage} showInfo={false} />
             </Card>
           </div>
-        ))}
+        ))
+      ) : (
+        <p>Add space ships to your fleet.</p>
+      )}
     </Card>
   );
 };

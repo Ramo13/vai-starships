@@ -39,7 +39,7 @@ const fleetReducer = (state = initialState, action) => {
     case "DECREASE_FLEET":
       return {
         ...state,
-        fleet: state.fleet.filter((ship) => ship.name !== action.payload.name),
+        fleet: state.fleet.filter((ship) => ship.id !== action.payload.id),
       };
 
     case "OPEN_DETAILED":
