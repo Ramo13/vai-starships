@@ -77,7 +77,7 @@ const fleetReducer = (state = initialState, action) => {
       return {
         ...state,
         fleet: state.fleet.map((ship) => {
-          if (ship.name === state.detailViewShip.name) {
+          if (ship.id === state.detailViewShip.id) {
             return { ...state.detailViewShip };
           } else {
             return { ...ship };
