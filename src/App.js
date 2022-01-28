@@ -1,15 +1,7 @@
-import DetailedView from "./components/DetailedView";
-import Fleet from "./components/Fleet";
-import Search from "./components/Search";
+import StarshipManager from "./components/StarshipManager";
 
 function App() {
-  return (
-    <>
-      <Search />;
-      <Fleet />
-      <DetailedView />
-    </>
-  );
+  return <StarshipManager />;
 }
 
 export default App;
