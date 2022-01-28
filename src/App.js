@@ -1,3 +1,4 @@
+import DetailedView from "./components/DetailedView";
 import Fleet from "./components/Fleet";
 import Search from "./components/Search";
 
@@ -6,6 +7,7 @@ function App() {
     <>
       <Search />;
       <Fleet />
+      <DetailedView />
     </>
   );
 }

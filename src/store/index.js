@@ -1,6 +1,8 @@
 import { createStore } from "redux";
 
-const fleetReducer = (state = {}, action) => {
+const initialState = { fleet: [], detailViewShip: {} };
+
+const fleetReducer = (state = initialState, action) => {
   switch (action.type) {
     case "INCREASE_FLEET": {
       const crewString = action.payload.crew.split("-");
@@ -38,6 +40,11 @@ const fleetReducer = (state = {}, action) => {
       return {
         ...state,
         fleet: state.fleet.filter((ship) => ship.name !== action.payload.name),
+      };
+    case "OPEN_DETAILED":
+      return {
+        ...state,
+        detailViewShip: action.payload,
       };
     default:
       return state;

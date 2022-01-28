@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 
 import { Progress, Card } from "antd";
-import { DeleteFilled } from "@ant-design/icons";
+import { DeleteFilled, EditFilled } from "@ant-design/icons";
 
 const { Meta } = Card;
 
@@ -11,6 +11,10 @@ const Fleet = () => {
 
   const removeFromFleet = (starship) => {
     dispatch({ type: "DECREASE_FLEET", payload: starship });
+  };
+
+  const openDetailed = (starship) => {
+    dispatch({ type: "OPEN_DETAILED", payload: starship });
   };
 
   return (
@@ -26,6 +30,7 @@ const Fleet = () => {
                   key="setting"
                   onClick={() => removeFromFleet(ship)}
                 />,
+                <EditFilled key="edit" onClick={() => openDetailed(ship)} />,
               ]}
             >
               <Meta title={ship.name} description={ship.model} />
