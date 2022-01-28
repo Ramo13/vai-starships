@@ -1,5 +1,7 @@
+import Search from "./components/Search";
+
 function App() {
-  return <p>Vai Starships</p>;
+  return <Search />;
 }
 
 export default App;
