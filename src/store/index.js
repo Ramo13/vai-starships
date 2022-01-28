@@ -41,11 +41,38 @@ const fleetReducer = (state = initialState, action) => {
         ...state,
         fleet: state.fleet.filter((ship) => ship.name !== action.payload.name),
       };
+
     case "OPEN_DETAILED":
       return {
         ...state,
         detailViewShip: action.payload,
       };
+
+    case "ADD_PASSENGER":
+      return {
+        ...state,
+        detailViewShip: {
+          ...state.detailViewShip,
+          passengers: state.detailViewShip.passengers + 1,
+          usage:
+            ((state.detailViewShip.crew + state.detailViewShip.passengers + 1) *
+              100) /
+            state.detailViewShip.capacity,
+        },
+      };
+    case "REMOVE_PASSENGER":
+      return {
+        ...state,
+        detailViewShip: {
+          ...state.detailViewShip,
+          passengers: state.detailViewShip.passengers - 1,
+          usage:
+            ((state.detailViewShip.crew + state.detailViewShip.passengers - 1) *
+              100) /
+            state.detailViewShip.capacity,
+        },
+      };
+
     default:
       return state;
   }
